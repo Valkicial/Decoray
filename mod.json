@@ -1,0 +1,111 @@
+{
+	"geode": "5.11.2",
+	"gd": {
+		"win": "2.2081",
+		"android": "2.2081",
+		"mac": "2.2081",
+		"ios": "2.2081"
+	},
+	"id": "valkicial.ai-deco",
+	"name": "AI Deco",
+	"version": "v1.0.0",
+	"developer": "valkicial",
+	"description": "Hover a block, describe how it should look, get a finished decoration. Works offline, optionally powered by Claude.",
+	"tags": ["editor"],
+	"dependencies": {
+		"geode.node-ids": {
+			"version": ">=v1.23.3",
+			"required": false
+		}
+	},
+	"settings": {
+		"editor-title": {
+			"type": "title",
+			"name": "Editor"
+		},
+		"open-key": {
+			"type": "keybind",
+			"name": "Open AI Deco",
+			"description": "Opens the generator for the block under the cursor (or a new design at the cursor).",
+			"default": "Alt+G",
+			"category": "editor"
+		},
+		"show-hover-button": {
+			"type": "bool",
+			"name": "Hover button",
+			"description": "Shows a small <cy>AI</c> button on the block under the cursor. Click it to open the generator for that block.",
+			"default": true
+		},
+		"close-after-generate": {
+			"type": "bool",
+			"name": "Close after generating",
+			"description": "Close the popup after placing a design so you can see it. Reopen it to <cy>Reroll</c>.",
+			"default": true
+		},
+		"max-structure-blocks": {
+			"type": "int",
+			"name": "Max structure blocks",
+			"description": "How many touching blocks are picked up when you hover a structure.",
+			"default": 400,
+			"min": 1,
+			"max": 2000
+		},
+		"objects-title": {
+			"type": "title",
+			"name": "Generated objects"
+		},
+		"auto-colors": {
+			"type": "bool",
+			"name": "Auto colors",
+			"description": "Picks unused color channels and sets them to the design's palette. Turn off to use channels starting at <cy>First color channel</c> and color them yourself.",
+			"default": true
+		},
+		"first-channel": {
+			"type": "int",
+			"name": "First color channel",
+			"description": "Lowest color channel the generator may use.",
+			"default": 1,
+			"min": 1,
+			"max": 990
+		},
+		"no-touch": {
+			"type": "bool",
+			"name": "No Touch",
+			"description": "Marks generated objects as No Touch so they never affect gameplay.",
+			"default": true
+		},
+		"dont-fade": {
+			"type": "bool",
+			"name": "Don't Fade",
+			"default": false
+		},
+		"dont-enter": {
+			"type": "bool",
+			"name": "Don't Enter",
+			"default": false
+		},
+		"claude-title": {
+			"type": "title",
+			"name": "Claude AI (optional)",
+			"description": "The built-in generator works offline. Add an Anthropic API key to let Claude design instead (paid by your API account)."
+		},
+		"claude-api-key": {
+			"type": "string",
+			"name": "Anthropic API key",
+			"description": "Get one at console.anthropic.com. Stored in plain text in your Geode save folder; never share it.",
+			"default": ""
+		},
+		"claude-model": {
+			"type": "string",
+			"name": "Claude model",
+			"description": "Model id, e.g. claude-sonnet-5-5 (fast) or claude-opus-5-5 (best).",
+			"default": "claude-sonnet-5-5"
+		},
+		"claude-endpoint": {
+			"type": "string",
+			"name": "API endpoint",
+			"description": "Only change this if you use a proxy.",
+			"default": "https://api.anthropic.com/v1/messages"
+		}
+	}
+}
